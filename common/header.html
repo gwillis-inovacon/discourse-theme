@@ -1,75 +1,25 @@
-<script type="text/x-handlebars" data-template-name="/connectors/above-main-container/community-stats">
-  {{#if themeSettings.show_community_stats}}
-    <div class="sidebar-section community-stats">
-      <div class="sidebar-section-header">
-        {{theme-i18n "yodev_theme.community_stats"}}
+{{#if themeSettings.show_community_stats}}
+  <div class="sidebar-section community-stats">
+    <div class="sidebar-section-header">
+      {{theme-i18n "yodev_theme.community_stats"}}
+    </div>
+    <div class="sidebar-section-content">
+      <div class="stat-item">
+        <span class="stat-label">{{theme-i18n "yodev_theme.active_developers"}}</span>
+        <span class="stat-value">10,247</span>
       </div>
-      <div class="sidebar-section-content">
-        <div class="stat-item">
-          <span class="stat-label">{{theme-i18n "yodev_theme.active_developers"}}</span>
-          <span class="stat-value">10,247</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label">{{theme-i18n "yodev_theme.posts_today"}}</span>
-          <span class="stat-value">156</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-label">{{theme-i18n "yodev_theme.communities"}}</span>
-          <span class="stat-value">47</span>
-        </div>
+      <div class="stat-item">
+        <span class="stat-label">{{theme-i18n "yodev_theme.posts_today"}}</span>
+        <span class="stat-value">156</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">{{theme-i18n "yodev_theme.communities"}}</span>
+        <span class="stat-value">47</span>
       </div>
     </div>
-  {{/if}}
-</script>
+  </div>
+{{/if}}
 
-<script type="text/x-handlebars" data-template-name="/connectors/header-buttons/custom-logo-text">
-  {{#if themeSettings.custom_logo_text}}
-    <span class="custom-logo-text">{{themeSettings.custom_logo_text}}</span>
-  {{/if}}
-</script>
-
-<style>
-  .custom-logo-text {
-    margin-left: 0.5rem;
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--primary);
-  }
-  
-  .full-width-layout {
-    .container {
-      max-width: none !important;
-    }
-  }
-  
-  .community-stats {
-    background: var(--secondary);
-    border: 1px solid var(--primary-low);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    
-    .sidebar-section-header {
-      font-weight: 600;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-    
-    .stat-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.5rem 0;
-      border-bottom: 1px solid var(--primary-low);
-      
-      &:last-child {
-        border-bottom: none;
-      }
-      
-      .stat-value {
-        font-weight: 600;
-        color: var(--yodev-accent);
-      }
-    }
-  }
-</style>
-</script>
+{{#if themeSettings.custom_logo_text}}
+  <span class="custom-logo-text">{{themeSettings.custom_logo_text}}</span>
+{{/if}}

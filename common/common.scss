@@ -187,6 +187,63 @@
   }
 }
 
+// Custom logo text styling
+.custom-logo-text {
+  margin-left: 0.5rem;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--primary);
+}
+
+// Full-width layout styling
+.full-width-layout {
+  .container {
+    max-width: none !important;
+  }
+}
+
+// Footer banner styling
+.yodev-footer-banner {
+  background: linear-gradient(135deg, var(--yodev-accent), #ea580c);
+  color: white;
+  padding: 3rem 0;
+  margin-top: 2rem;
+  
+  .footer-content {
+    text-align: center;
+    
+    h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+    
+    .btn {
+      background: white;
+      color: var(--yodev-accent);
+      border: none;
+      padding: 0.75rem 2rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 6px;
+      display: inline-block;
+      transition: all 0.2s ease;
+      
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        color: var(--yodev-accent);
+      }
+    }
+  }
+}
+
 // Custom footer styling
 .custom-footer {
   background: var(--secondary);
