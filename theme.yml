@@ -1,0 +1,56 @@
+name: "YoDev Community Theme"
+about_url: "https://github.com/yodev/discourse-theme"
+license_url: "https://github.com/yodev/discourse-theme/blob/main/LICENSE"
+authors: "YoDev Team"
+theme_version: "1.0.0"
+minimum_discourse_version: "3.0.0"
+maximum_discourse_version: null
+
+assets:
+  logo: "assets/logo.svg"
+
+color_schemes:
+  "YoDev Orange":
+    primary: "222222"
+    secondary: "ffffff"
+    tertiary: "f97316"
+    quaternary: "e5e7eb"
+    header_background: "ffffff"
+    header_primary: "222222"
+    highlight: "f97316"
+    danger: "ef4444"
+    success: "22c55e"
+    love: "ec4899"
+
+settings:
+  hide_topic_footer_controls:
+    default: true
+    description: "Hides the reply/bookmark/share buttons at the bottom of each topic"
+  
+  enable_full_width_layout:
+    default: true
+    description: "Enables full-width layout for better content display"
+  
+  custom_header_search:
+    default: true
+    description: "Enables custom header search styling"
+  
+  show_community_stats:
+    default: true
+    description: "Shows community statistics in the sidebar"
+  
+  enable_reddit_style_voting:
+    default: false
+    description: "Enables Reddit-style voting appearance (requires plugin)"
+  
+  custom_logo_text:
+    default: "YoDev"
+    description: "Custom text to display next to the logo"
+  
+  primary_accent_color:
+    default: "#f97316"
+    description: "Primary accent color for the theme"
+  
+  enable_dark_mode_toggle:
+    default: true
+    description: "Shows dark/light mode toggle in header"
