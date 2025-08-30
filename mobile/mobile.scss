@@ -1,0 +1,148 @@
+// Mobile-specific styles for YoDev theme
+
+// Mobile header adjustments
+.d-header {
+  .d-header-wrap {
+    padding: 0.5rem;
+  }
+  
+  .header-buttons {
+    .search-menu {
+      .search-input {
+        width: 200px;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+// Mobile topic list
+.topic-list {
+  .topic-list-item {
+    padding: 0.75rem;
+    
+    .topic-details {
+      .topic-title {
+        font-size: 1rem;
+      }
+      
+      .topic-excerpt {
+        font-size: 0.85rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+      
+      .topic-meta {
+        flex-wrap: wrap;
+        gap: 0.25rem;
+      }
+    }
+    
+    .topic-stats {
+      flex-direction: row;
+      gap: 1rem;
+    }
+  }
+}
+
+// Mobile sidebar
+.sidebar-wrapper {
+  width: 100%;
+  margin-top: 1rem;
+  
+  .sidebar-section {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    
+    .sidebar-section-header {
+      font-size: 0.85rem;
+    }
+  }
+}
+
+// Mobile navigation
+.nav-pills {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.5rem;
+  padding: 0.5rem 0;
+  
+  > li {
+    flex-shrink: 0;
+    
+    > a {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+  }
+}
+
+// Mobile post styling
+.topic-post {
+  margin-bottom: 0.75rem;
+  
+  .topic-avatar {
+    .avatar {
+      width: 32px;
+      height: 32px;
+    }
+  }
+  
+  .topic-body {
+    .cooked {
+      font-size: 0.9rem;
+      
+      pre {
+        padding: 0.75rem;
+        font-size: 0.8rem;
+        overflow-x: auto;
+      }
+    }
+  }
+}
+
+// Mobile-specific utilities
+@media (max-width: 480px) {
+  .topic-list-item {
+    .topic-votes {
+      min-width: 50px;
+      
+      .vote-button {
+        padding: 0.125rem;
+      }
+      
+      .vote-count {
+        font-size: 0.8rem;
+      }
+    }
+    
+    .topic-details {
+      .topic-title {
+        font-size: 0.95rem;
+        line-height: 1.3;
+      }
+    }
+  }
+  
+  .sidebar-section {
+    .popular-topics {
+      .topic-link {
+        padding: 0.5rem;
+        
+        .topic-info {
+          .topic-name {
+            font-size: 0.85rem;
+          }
+        }
+        
+        .join-button {
+          padding: 0.25rem 0.5rem;
+          font-size: 0.7rem;
+        }
+      }
+    }
+  }
+}

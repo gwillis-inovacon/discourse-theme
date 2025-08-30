@@ -1,0 +1,271 @@
+// Desktop-specific styles for YoDev theme
+
+// Enhanced header for desktop
+.d-header {
+  .d-header-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+  }
+  
+  .header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    .search-menu {
+      .search-input {
+        width: 400px;
+        background: var(--yodev-hover);
+        border: 1px solid var(--yodev-border);
+        border-radius: 9999px;
+        padding: 0.5rem 1rem 0.5rem 2.5rem;
+        font-size: 0.9rem;
+        
+        &::placeholder {
+          color: var(--primary-medium);
+        }
+        
+        &:focus {
+          outline: none;
+          border-color: var(--yodev-accent);
+          box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+        }
+      }
+      
+      .search-context {
+        position: absolute;
+        left: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--primary-medium);
+      }
+    }
+  }
+}
+
+// Enhanced topic list for desktop
+.topic-list {
+  .topic-list-body {
+    .topic-list-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto auto;
+      gap: 1rem;
+      align-items: center;
+      padding: 1rem;
+      
+      .topic-votes {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 60px;
+        
+        .vote-button {
+          background: none;
+          border: none;
+          color: var(--primary-medium);
+          cursor: pointer;
+          padding: 0.25rem;
+          border-radius: 4px;
+          transition: all 0.2s ease;
+          
+          &:hover {
+            background: var(--yodev-hover);
+            color: var(--yodev-accent);
+          }
+          
+          &.upvoted {
+            color: var(--yodev-accent);
+          }
+          
+          &.downvoted {
+            color: #3b82f6;
+          }
+        }
+        
+        .vote-count {
+          font-weight: 700;
+          font-size: 0.9rem;
+          margin: 0.25rem 0;
+        }
+      }
+      
+      .topic-details {
+        .topic-title {
+          font-size: 1.1rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          
+          a {
+            color: var(--primary);
+            text-decoration: none;
+            
+            &:hover {
+              color: var(--yodev-accent);
+            }
+          }
+        }
+        
+        .topic-excerpt {
+          color: var(--primary-medium);
+          font-size: 0.9rem;
+          line-height: 1.5;
+          margin-bottom: 0.5rem;
+        }
+        
+        .topic-meta {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.8rem;
+          color: var(--primary-medium);
+          
+          .topic-category {
+            background: var(--yodev-accent);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+          }
+        }
+      }
+      
+      .topic-stats {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.25rem;
+        min-width: 80px;
+        
+        .topic-stat {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: 0.8rem;
+          color: var(--primary-medium);
+          
+          .d-icon {
+            color: var(--yodev-accent);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Enhanced sidebar for desktop
+.sidebar-wrapper {
+  width: 300px;
+  
+  .sidebar-section {
+    &.community-rules {
+      .rule-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--yodev-border);
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        .rule-number {
+          background: var(--yodev-accent);
+          color: white;
+          border-radius: 50%;
+          width: 1.5rem;
+          height: 1.5rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 0.75rem;
+          font-weight: 700;
+          flex-shrink: 0;
+        }
+        
+        .rule-text {
+          font-size: 0.85rem;
+          color: var(--primary-medium);
+          line-height: 1.4;
+        }
+      }
+    }
+    
+    &.popular-topics {
+      .topic-link {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.75rem;
+        border-radius: 6px;
+        transition: background 0.2s ease;
+        text-decoration: none;
+        
+        &:hover {
+          background: var(--yodev-hover);
+        }
+        
+        .topic-icon {
+          font-size: 1.2rem;
+        }
+        
+        .topic-info {
+          flex: 1;
+          
+          .topic-name {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.9rem;
+          }
+          
+          .topic-count {
+            color: var(--primary-medium);
+            font-size: 0.75rem;
+          }
+        }
+        
+        .join-button {
+          background: var(--yodev-accent);
+          color: white;
+          border: none;
+          padding: 0.25rem 0.75rem;
+          border-radius: 4px;
+          font-size: 0.75rem;
+          font-weight: 600;
+          cursor: pointer;
+          
+          &:hover {
+            background: darken(var(--yodev-accent), 10%);
+          }
+        }
+      }
+    }
+  }
+}
+
+// Create post button enhancement
+.create-topic {
+  .btn {
+    background: var(--yodev-accent);
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    &:before {
+      content: "+";
+      font-size: 1.2rem;
+    }
+    
+    &:hover {
+      background: darken(var(--yodev-accent), 10%);
+      transform: translateY(-1px);
+    }
+  }
+}

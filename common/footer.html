@@ -1,0 +1,53 @@
+<script type="text/discourse-plugin" version="0.8">
+  // Footer customizations for YoDev theme
+  
+  api.decorateWidget("footer:before", helper => {
+    return h("div.yodev-footer-banner", [
+      h("div.container", [
+        h("div.footer-content", [
+          h("h3", "¿Listo para unirte a la comunidad?"),
+          h("p", "Conecta con desarrolladores de toda América Latina"),
+          h("a.btn.btn-primary", { href: "/signup" }, "Comenzar ahora")
+        ])
+      ])
+    ]);
+  });
+</script>
+
+<style>
+  .yodev-footer-banner {
+    background: linear-gradient(135deg, var(--yodev-accent), darken(var(--yodev-accent), 20%));
+    color: white;
+    padding: 3rem 0;
+    margin-top: 2rem;
+    
+    .footer-content {
+      text-align: center;
+      
+      h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+      
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+      }
+      
+      .btn {
+        background: white;
+        color: var(--yodev-accent);
+        border: none;
+        padding: 0.75rem 2rem;
+        font-weight: 700;
+        
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+      }
+    }
+  }
+}</style>

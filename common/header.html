@@ -1,0 +1,75 @@
+<script type="text/discourse-plugin" version="0.8">
+  const { h } = require("virtual-dom");
+  
+  api.decorateWidget("header-buttons:before", helper => {
+    if (settings.custom_header_search) {
+      return helper.attach("search-menu");
+    }
+  });
+  
+  api.decorateWidget("home-logo:after", helper => {
+    if (settings.custom_logo_text) {
+      return h("span.custom-logo-text", settings.custom_logo_text);
+    }
+  });
+  
+  // Add community stats to sidebar
+  api.decorateWidget("sidebar-wrapper:after", helper => {
+    if (settings.show_community_stats) {
+      return helper.attach("community-stats-widget");
+    }
+  });
+  
+  api.createWidget("community-stats-widget", {
+    tagName: "div.sidebar-section.community-stats",
+    
+    html() {
+      return [
+        h("div.sidebar-section-header", "Estadísticas de la Comunidad"),
+        h("div.sidebar-section-content", [
+          h("div.stat-item", [
+            h("span.stat-label", "Desarrolladores activos"),
+            h("span.stat-value", "10,247")
+          ]),
+          h("div.stat-item", [
+            h("span.stat-label", "Posts hoy"),
+            h("span.stat-value", "156")
+          ]),
+          h("div.stat-item", [
+            h("span.stat-label", "Comunidades"),
+            h("span.stat-value", "47")
+          ])
+        ])
+      ];
+    }
+  });
+  
+  // Apply theme settings
+  if (settings.hide_topic_footer_controls) {
+    $("body").addClass("hide-topic-footer-controls");
+  }
+  
+  if (settings.enable_full_width_layout) {
+    $("body").addClass("full-width-layout");
+  }
+  
+  // Set custom accent color
+  if (settings.primary_accent_color) {
+    document.documentElement.style.setProperty('--yodev-primary-accent', settings.primary_accent_color);
+  }
+</script>
+
+<style>
+  .custom-logo-text {
+    margin-left: 0.5rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary);
+  }
+  
+  .full-width-layout {
+    .container {
+      max-width: none !important;
+    }
+  }
+</style>

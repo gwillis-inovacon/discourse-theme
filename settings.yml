@@ -1,0 +1,31 @@
+hide_topic_footer_controls:
+  default: true
+  description: "Hides the reply/bookmark/share buttons at the bottom of each topic"
+
+enable_full_width_layout:
+  default: true
+  description: "Enables full-width layout for better content display"
+
+custom_header_search:
+  default: true
+  description: "Enables custom header search styling"
+
+show_community_stats:
+  default: true
+  description: "Shows community statistics in the sidebar"
+
+enable_reddit_style_voting:
+  default: false
+  description: "Enables Reddit-style voting appearance (requires plugin)"
+
+custom_logo_text:
+  default: "YoDev"
+  description: "Custom text to display next to the logo"
+
+primary_accent_color:
+  default: "#f97316"
+  description: "Primary accent color for the theme"
+
+enable_dark_mode_toggle:
+  default: true
+  description: "Shows dark/light mode toggle in header"

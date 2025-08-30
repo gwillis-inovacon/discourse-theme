@@ -1,0 +1,23 @@
+es:
+  theme_metadata:
+    settings:
+      hide_topic_footer_controls: "Ocultar controles del pie de tema"
+      enable_full_width_layout: "Habilitar diseño de ancho completo"
+      custom_header_search: "Búsqueda personalizada en encabezado"
+      show_community_stats: "Mostrar estadísticas de la comunidad"
+      enable_reddit_style_voting: "Habilitar votación estilo Reddit"
+      custom_logo_text: "Texto personalizado del logo"
+      primary_accent_color: "Color de acento principal"
+      enable_dark_mode_toggle: "Habilitar alternador de modo oscuro"
+  
+  yodev_theme:
+    community_stats: "Estadísticas de la Comunidad"
+    active_developers: "Desarrolladores Activos"
+    posts_today: "Posts Hoy"
+    communities: "Comunidades"
+    join_community: "Unirse a la Comunidad"
+    popular_topics: "Temas Populares"
+    community_rules: "Reglas de la Comunidad"
+    ready_to_join: "¿Listo para unirte a la comunidad?"
+    connect_developers: "Conecta con desarrolladores de América Latina"
+    get_started: "Comenzar Ahora"
