@@ -1,60 +1,49 @@
-// YoDev Community Theme - Main Styles
-// Based on Reddit-inspired design with full-width layout
+// Import Discourse variables and mixins
+@import "common/foundation/variables";
+@import "common/foundation/mixins";
 
+// Custom CSS properties for theme colors
 :root {
-  --yodev-primary: #{$primary};
-  --yodev-secondary: #{$secondary};
-  --yodev-tertiary: #{$tertiary};
-  --yodev-accent: var(--yodev-primary-accent, #f97316);
-  --yodev-border: #e5e7eb;
-  --yodev-hover: #f3f4f6;
+  --yodev-accent: #f97316;
+  --yodev-accent-dark: #ea580c;
+  --yodev-accent-light: #fb923c;
 }
 
-// Full-width layout
-.container {
-  max-width: none !important;
-  
-  .wrap {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
-}
-
-// Header styling
+// Header customizations
 .d-header {
-  background: var(--secondary);
-  border-bottom: 2px solid var(--yodev-accent);
+  background: var(--header_background);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   
-  .d-header-wrap {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 1rem;
+  .title {
+    font-weight: 700;
+    
+    a {
+      color: var(--header_primary);
+    }
   }
   
-  .logo-wrapper {
-    .logo {
-      font-weight: 700;
-      font-size: 1.5rem;
-      color: var(--primary);
-      
-      &:before {
-        content: "🚀";
-        margin-right: 0.5rem;
-      }
+  .header-buttons {
+    .btn {
+      border-radius: 6px;
+      font-weight: 500;
+    }
+  }
+  
+  .btn-primary {
+    background: var(--yodev-accent-dark);
+    border-color: var(--yodev-accent);
+    
+    &:hover {
+      background: #dc2626;
     }
   }
 }
 
-// Custom header search
+// Custom search styling
 .search-menu {
   .search-input {
-    background: var(--yodev-hover);
-    border: 1px solid var(--yodev-border);
-    border-radius: 9999px;
-    padding: 0.5rem 1rem;
-    width: 300px;
+    border-radius: 8px;
+    border: 2px solid var(--primary-low);
     
     &:focus {
       border-color: var(--yodev-accent);
@@ -65,161 +54,53 @@
 
 // Topic list styling
 .topic-list {
-  border: none;
-  
-  .topic-list-header {
-    background: var(--secondary);
-    border-bottom: 2px solid var(--yodev-border);
-    
-    .topic-list-data {
-      color: var(--primary);
-      font-weight: 600;
-    }
-  }
-  
   .topic-list-item {
-    background: var(--secondary);
-    border: 1px solid var(--yodev-border);
-    border-radius: 8px;
-    margin-bottom: 0.5rem;
-    padding: 1rem;
-    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
     
     &:hover {
-      border-color: var(--yodev-accent);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    
-    .main-link {
-      .title {
-        font-weight: 600;
-        color: var(--primary);
-        font-size: 1.1rem;
-        
-        &:hover {
-          color: var(--yodev-accent);
-        }
-      }
-    }
-    
-    .topic-meta {
-      .discourse-tags {
-        .discourse-tag {
-          background: var(--yodev-accent);
-          color: white;
-          border-radius: 4px;
-          padding: 0.25rem 0.5rem;
-          font-size: 0.75rem;
-          font-weight: 500;
-        }
-      }
+      border-left-color: var(--yodev-accent-light);
     }
   }
 }
 
-// Post styling
-.topic-post {
+// Community stats widget
+.community-stats {
   background: var(--secondary);
-  border: 1px solid var(--yodev-border);
+  border: 1px solid var(--primary-low);
   border-radius: 8px;
+  padding: 1rem;
   margin-bottom: 1rem;
   
-  .topic-avatar {
-    .avatar {
-      border-radius: 50%;
-      border: 2px solid var(--yodev-border);
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--primary-low);
+    
+    &:last-child {
+      border-bottom: none;
     }
-  }
-  
-  .topic-body {
-    .cooked {
-      font-size: 1rem;
-      line-height: 1.6;
-      
-      p {
-        margin-bottom: 1rem;
-      }
-      
-      code {
-        background: var(--yodev-hover);
-        padding: 0.25rem 0.5rem;
-        border-radius: 4px;
-        font-family: 'JetBrains Mono', monospace;
-      }
-      
-      pre {
-        background: var(--yodev-hover);
-        border: 1px solid var(--yodev-border);
-        border-radius: 8px;
-        padding: 1rem;
-        overflow-x: auto;
-        
-        code {
-          background: none;
-          padding: 0;
-        }
-      }
+    
+    .stat-value {
+      font-weight: 600;
+      color: var(--yodev-accent);
     }
   }
 }
 
-// Sidebar styling
-.sidebar-wrapper {
-  .sidebar-section {
-    background: var(--secondary);
-    border: 1px solid var(--yodev-border);
-    border-radius: 8px;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    
-    .sidebar-section-header {
-      font-weight: 700;
-      color: var(--primary);
-      margin-bottom: 0.75rem;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .sidebar-section-content {
-      .sidebar-section-link {
-        padding: 0.5rem;
-        border-radius: 4px;
-        transition: background 0.2s ease;
-        
-        &:hover {
-          background: var(--yodev-hover);
-        }
-        
-        .sidebar-section-link-content {
-          color: var(--primary);
-          
-          .sidebar-section-link-prefix {
-            color: var(--yodev-accent);
-          }
-        }
-      }
-    }
-  }
-}
-
-// Navigation styling
-.nav-pills {
-  > li {
-    > a {
-      background: transparent;
-      color: var(--primary);
-      border-radius: 9999px;
-      padding: 0.5rem 1rem;
-      font-weight: 500;
+// Reddit-style voting (when plugin is enabled)
+.discourse-voting {
+  .voting-wrapper {
+    .vote-button {
+      border-radius: 4px;
       transition: all 0.2s ease;
       
       &:hover {
-        background: var(--yodev-hover);
-        color: var(--yodev-accent);
+        background: var(--yodev-accent-light);
+        transform: scale(1.1);
       }
       
-      &.active {
+      &.voted {
         background: var(--yodev-accent);
         color: white;
       }
@@ -227,89 +108,124 @@
   }
 }
 
-// Button styling
-.btn {
-  border-radius: 8px;
-  font-weight: 600;
-  transition: all 0.2s ease;
+// Dark mode toggle
+.dark-mode-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
   
-  &.btn-primary {
-    background: var(--yodev-accent);
-    border-color: var(--yodev-accent);
+  .toggle-switch {
+    width: 50px;
+    height: 24px;
+    background: var(--primary-low);
+    border-radius: 12px;
+    position: relative;
+    transition: background 0.3s ease;
     
-    &:hover {
-      background: darken(var(--yodev-accent), 10%);
-      border-color: darken(var(--yodev-accent), 10%);
-    }
-  }
-  
-  &.btn-default {
-    border: 1px solid var(--yodev-border);
-    
-    &:hover {
-      border-color: var(--yodev-accent);
-      color: var(--yodev-accent);
-    }
-  }
-}
-
-// Hide topic footer controls if setting enabled
-.hide-topic-footer-controls {
-  .topic-footer-main-buttons {
-    display: none !important;
-  }
-}
-
-// Community stats widget
-.community-stats {
-  .stat-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--yodev-border);
-    
-    &:last-child {
-      border-bottom: none;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.3s ease;
     }
     
-    .stat-label {
-      color: var(--primary-medium);
-      font-size: 0.9rem;
-    }
-    
-    .stat-value {
-      color: var(--yodev-accent);
-      font-weight: 700;
-      font-size: 1.1rem;
+    &.dark {
+      background: var(--yodev-accent);
+      
+      &::after {
+        transform: translateX(26px);
+      }
     }
   }
 }
 
-// Responsive design
-@media (max-width: 768px) {
-  .container .wrap {
-    padding: 0 0.5rem;
-  }
-  
-  .search-menu .search-input {
-    width: 200px;
-  }
-  
-  .topic-list-item {
-    padding: 0.75rem;
+// Enhanced topic styling
+.topic-post {
+  .topic-body {
+    .cooked {
+      line-height: 1.6;
+      
+      h1, h2, h3, h4, h5, h6 {
+        color: var(--primary);
+        margin-top: 1.5em;
+        margin-bottom: 0.5em;
+      }
+      
+      code {
+        background: var(--hljs-bg);
+        padding: 0.2em 0.4em;
+        border-radius: 3px;
+        font-size: 0.9em;
+      }
+      
+      pre {
+        background: var(--hljs-bg);
+        border-radius: 6px;
+        padding: 1rem;
+        overflow-x: auto;
+      }
+    }
   }
 }
 
-// Dark mode support
-.dark-mode {
-  --yodev-border: #374151;
-  --yodev-hover: #1f2937;
+// Full-width layout when enabled
+.full-width-layout {
+  .container {
+    max-width: none;
+    padding: 0 2rem;
+  }
   
-  .topic-list-item,
-  .topic-post,
-  .sidebar-section {
-    background: var(--secondary);
-    border-color: var(--yodev-border);
+  #main-outlet {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+// Custom footer styling
+.custom-footer {
+  background: var(--secondary);
+  border-top: 1px solid var(--primary-low);
+  padding: 2rem 0;
+  margin-top: 3rem;
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  
+  .footer-section {
+    h4 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      
+      li {
+        margin-bottom: 0.5rem;
+        
+        a {
+          color: var(--primary-medium);
+          text-decoration: none;
+          
+          &:hover {
+            color: var(--yodev-accent);
+          }
+        }
+      }
+    }
   }
 }
