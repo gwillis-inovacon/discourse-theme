@@ -7,7 +7,7 @@ A modern, Reddit-inspired Discourse theme designed for developer communities.
 1. Go to your Discourse admin panel
 2. Navigate to **Customize > Themes**
 3. Click **"Install"** → **"From a git repository"**
-4. Enter this repository URL
+4. Enter this repository URL: `https://github.com/YOUR_USERNAME/yodev-discourse-theme`
 5. Click **"Install"** and then **"Activate"**
 
 ## Features
@@ -23,29 +23,29 @@ A modern, Reddit-inspired Discourse theme designed for developer communities.
 
 ## Installation
 
-1. Go to your Discourse admin panel
-2. Navigate to Customize > Themes
-3. Click "Install" and choose "From a git repository"
-4. Enter the repository URL or upload the theme files
-5. Activate the theme
+### Method 1: Git Repository (Recommended)
+
+```
+https://github.com/YOUR_USERNAME/yodev-discourse-theme
+```
+
+### Method 2: Manual Upload
+
+1. Download this repository as ZIP
+2. Go to Discourse admin → Customize → Themes
+3. Click "Install" → "Upload"
+4. Upload the ZIP file
 
 ## Configuration
 
-The theme includes several customizable settings:
+After installation, configure these settings in **Customize > Themes > YoDev Community Theme > Settings**:
 
-### Layout Settings
-- **Enable full-width layout**: Removes container width restrictions
-- **Hide topic footer controls**: Hides reply/bookmark/share buttons at bottom of topics
-- **Custom header search**: Enables enhanced search bar styling
-
-### Community Features
-- **Show community stats**: Displays member count and activity stats
-- **Enable Reddit-style voting**: Changes voting button appearance
-- **Custom logo text**: Add custom text next to your logo
-
-### Appearance
-- **Primary accent color**: Customize the main theme color (default: #f97316)
-- **Enable dark mode toggle**: Adds dark/light mode switcher
+- ✅ **Enable full-width layout**
+- ✅ **Custom header search**
+- ✅ **Show community stats**
+- ✅ **Enable dark mode toggle**
+- **Custom logo text**: "YoDev" (or your community name)
+- **Primary accent color**: `#f97316` (orange)
 
 ## Theme Structure
 
@@ -62,26 +62,13 @@ The theme includes several customizable settings:
 │   └── mobile.scss        # Mobile-specific styles
 ├── javascripts/
 │   └── theme.js          # Theme JavaScript functionality
-└── locales/
-    ├── en.yml            # English translations
-    ├── es.yml            # Spanish translations
-    └── pt.yml            # Portuguese translations
+├── locales/
+│   ├── en.yml            # English translations
+│   ├── es.yml            # Spanish translations
+│   └── pt.yml            # Portuguese translations
+└── assets/
+    └── logo.svg          # Theme logo
 ```
-
-## Customization
-
-### Colors
-The theme uses CSS custom properties for easy color customization:
-- `--yodev-accent`: Primary accent color
-- `--yodev-border`: Border color
-- `--yodev-hover`: Hover state background
-
-### Typography
-The theme is optimized for the Inter and JetBrains Mono font families but will work with any fonts.
-
-### Layout
-- Desktop: Grid-based layout with sidebar
-- Mobile: Stacked layout with responsive navigation
 
 ## Browser Support
 
@@ -90,14 +77,6 @@ The theme is optimized for the Inter and JetBrains Mono font families but will w
 - Safari 14+
 - Edge 90+
 
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test on a Discourse instance
-5. Submit a pull request
-
 ## License
 
 MIT License - see LICENSE file for details
@@ -105,10 +84,9 @@ MIT License - see LICENSE file for details
 ## Support
 
 For support and questions:
-- Create an issue in the repository
+- Create an issue in this repository
 - Join the YoDev community discussions
-- Contact the theme maintainers
 
 ---
 
-**Note**: Some features like Reddit-style voting require additional Discourse plugins to be fully functional. The theme provides the visual styling and basic JavaScript interactions.
+**Note**: Some features like Reddit-style voting require additional Discourse plugins to be fully functional.
