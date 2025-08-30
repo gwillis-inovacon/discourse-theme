@@ -1,6 +1,6 @@
 import { Translation } from '../types/language';
 
-export const translations: Record<'es' | 'pt', Translation> = {
+export const translations: Record<'es' | 'pt' | 'en', Translation> = {
   es: {
     nav: {
       features: 'Características',
@@ -149,6 +149,81 @@ export const translations: Record<'es' | 'pt', Translation> = {
       },
       connect: 'CONECTAR',
       copyright: '© 2025 YODEV. TODOS OS DIREITOS RESERVADOS.'
+    }
+  },
+  en: {
+    nav: {
+      features: 'Features',
+      community: 'Community',
+      about: 'About'
+    },
+    hero: {
+      badge: 'DEVELOPER COMMUNITY',
+      title: {
+        where: 'WHERE',
+        developers: 'DEVELOPERS',
+        connect: 'CONNECT'
+      },
+      description: 'Join the most active discourse community for web developers and IT professionals in Latin America. Share knowledge, solve problems, and build the future together.',
+      joinCommunity: 'JOIN THE COMMUNITY',
+      exploreTopics: 'EXPLORE TOPICS'
+    },
+    features: {
+      title: 'FEATURES',
+      subtitle: 'Everything you need to connect, learn, and grow as a developer',
+      items: {
+        discussions: {
+          title: 'ACTIVE DISCUSSIONS',
+          description: 'Participate in real-time conversations about the latest web technologies, frameworks, and best practices.'
+        },
+        experts: {
+          title: 'EXPERT COMMUNITY',
+          description: 'Connect with experienced developers, architects, and IT professionals from across Latin America.'
+        },
+        reviews: {
+          title: 'CODE REVIEWS',
+          description: 'Get your code reviewed by experts and help others improve their programming skills.'
+        },
+        help: {
+          title: 'INSTANT HELP',
+          description: 'Stuck on a problem? Get quick answers from our responsive community.'
+        },
+        showcase: {
+          title: 'PROJECT SHOWCASE',
+          description: 'Share your projects, receive feedback, and discover amazing work from other developers.'
+        },
+        career: {
+          title: 'CAREER GROWTH',
+          description: 'Access job opportunities, mentorship, and career advice from industry veterans.'
+        }
+      }
+    },
+    community: {
+      title: 'COMMUNITY',
+      stats: {
+        developers: 'ACTIVE DEVELOPERS',
+        discussions: 'DISCUSSIONS',
+        support: 'COMMUNITY SUPPORT'
+      }
+    },
+    cta: {
+      title: {
+        ready: 'READY TO',
+        levelUp: 'LEVEL UP?'
+      },
+      description: 'Join thousands of developers who are already part of the YoDev community. Start contributing, learning, and growing today.',
+      getStarted: 'GET STARTED'
+    },
+    footer: {
+      description: 'The premier discourse community for web developers and IT professionals in Latin America.',
+      quickLinks: {
+        title: 'QUICK LINKS',
+        guidelines: 'Community Guidelines',
+        help: 'Help Center',
+        privacy: 'Privacy Policy'
+      },
+      connect: 'CONNECT',
+      copyright: '© 2025 YODEV. ALL RIGHTS RESERVED.'
     }
   }
 };

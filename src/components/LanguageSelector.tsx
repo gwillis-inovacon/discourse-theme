@@ -19,6 +19,7 @@ export function LanguageSelector({ language, onLanguageChange }: LanguageSelecto
         >
           <option value="es" className="bg-black text-yellow-400">ES</option>
           <option value="pt" className="bg-black text-yellow-400">PT</option>
+          <option value="en" className="bg-black text-yellow-400">EN</option>
         </select>
       </div>
     </div>

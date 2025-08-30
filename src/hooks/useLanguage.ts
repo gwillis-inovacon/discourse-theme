@@ -5,7 +5,7 @@ export function useLanguage() {
   const [language, setLanguage] = useState<Language>(() => {
     // Check localStorage first
     const saved = localStorage.getItem('yodev-language');
-    if (saved === 'es' || saved === 'pt') {
+    if (saved === 'es' || saved === 'pt' || saved === 'en') {
       return saved;
     }
     
@@ -13,6 +13,8 @@ export function useLanguage() {
     const browserLang = navigator.language.toLowerCase();
     if (browserLang.startsWith('pt')) {
       return 'pt';
+    } else if (browserLang.startsWith('en')) {
+      return 'en';
     }
     
     // Default to Spanish for Latin America
