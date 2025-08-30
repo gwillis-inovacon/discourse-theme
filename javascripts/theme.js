@@ -27,6 +27,11 @@ export default {
         document.documentElement.style.setProperty('--yodev-accent', settings.primary_accent_color);
       }
       
+      // Add custom logo text
+      if (settings.custom_logo_text) {
+        addCustomLogoText();
+      }
+      
       // Initialize dark mode toggle if enabled
       if (settings.enable_dark_mode_toggle) {
         initDarkModeToggle();
@@ -37,43 +42,86 @@ export default {
         initVotingSystem();
       }
       
-      // Initialize community features
-      initCommunityFeatures();
+      // Add community stats if enabled
+      if (settings.show_community_stats) {
+        addCommunityStats();
+      }
     });
   }
 };
 
+// Add custom logo text
+function addCustomLogoText() {
+  const logoContainer = document.querySelector('.title');
+  if (logoContainer && !logoContainer.querySelector('.custom-logo-text')) {
+    const logoText = document.createElement('span');
+    logoText.className = 'custom-logo-text';
+    logoText.textContent = settings.custom_logo_text;
+    logoContainer.appendChild(logoText);
+  }
+}
+
 // Dark mode toggle
 function initDarkModeToggle() {
-  const toggleButton = document.createElement('button');
-  toggleButton.className = 'dark-mode-toggle btn btn-icon no-text';
-  toggleButton.innerHTML = `
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-    </svg>
-  `;
-  
   const headerButtons = document.querySelector('.header-buttons');
-  if (headerButtons) {
+  if (headerButtons && !headerButtons.querySelector('.dark-mode-toggle')) {
+    const toggleButton = document.createElement('button');
+    toggleButton.className = 'btn btn-icon no-text dark-mode-toggle';
+    toggleButton.title = 'Toggle dark mode';
+    toggleButton.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+      </svg>
+    `;
+    
     headerButtons.appendChild(toggleButton);
+    
+    toggleButton.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('yodev-dark-mode', document.body.classList.contains('dark-mode'));
+    });
+    
+    // Load saved preference
+    if (localStorage.getItem('yodev-dark-mode') === 'true') {
+      document.body.classList.add('dark-mode');
+    }
   }
-  
-  toggleButton.addEventListener('click', function() {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('yodev-dark-mode', document.body.classList.contains('dark-mode'));
-  });
-  
-  // Load saved preference
-  if (localStorage.getItem('yodev-dark-mode') === 'true') {
-    document.body.classList.add('dark-mode');
+}
+
+// Add community stats
+function addCommunityStats() {
+  const sidebar = document.querySelector('.sidebar-wrapper') || document.querySelector('#main-outlet');
+  if (sidebar && !sidebar.querySelector('.community-stats')) {
+    const statsDiv = document.createElement('div');
+    statsDiv.className = 'sidebar-section community-stats';
+    statsDiv.innerHTML = `
+      <div class="sidebar-section-header">Community Stats</div>
+      <div class="sidebar-section-content">
+        <div class="stat-item">
+          <span class="stat-label">Active Developers</span>
+          <span class="stat-value">10,247</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Posts Today</span>
+          <span class="stat-value">156</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Communities</span>
+          <span class="stat-value">47</span>
+        </div>
+      </div>
+    `;
+    
+    if (sidebar.classList.contains('sidebar-wrapper')) {
+      sidebar.appendChild(statsDiv);
+    } else {
+      sidebar.insertBefore(statsDiv, sidebar.firstChild);
+    }
   }
 }
 
 // Reddit-style voting system
 function initVotingSystem() {
-  // This would require a plugin for actual functionality
-  // Here we just add the visual elements
-  
   document.querySelectorAll('.topic-list-item').forEach(item => {
     if (!item.querySelector('.topic-votes')) {
       const votesDiv = document.createElement('div');
@@ -114,23 +162,5 @@ function initVotingSystem() {
         button.classList.add('voted');
       }
     }
-  });
-}
-
-// Community features
-function initCommunityFeatures() {
-  // Add community badges
-  document.querySelectorAll('.topic-list-item').forEach(item => {
-    const categoryElement = item.querySelector('.category-name');
-    if (categoryElement) {
-      categoryElement.classList.add('community-badge');
-    }
-  });
-  
-  // Enhance user avatars with fallback
-  document.querySelectorAll('.topic-avatar img').forEach(avatar => {
-    avatar.addEventListener('error', function() {
-      this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNmOTczMTYiLz4KPHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEyIDEyYzIuMjEgMCA0LTEuNzkgNC00cy0xLjc5LTQtNC00LTQgMS43OS00IDQgMS43OSA0IDQgNHptMCAyYy0yLjY3IDAtOCAxLjM0LTggNHYyaDE2di0yYzAtMi42Ni01LjMzLTQtOC00eiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==';
-    });
   });
 }
