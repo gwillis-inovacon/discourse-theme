@@ -1,22 +1,18 @@
-<script type="text/discourse-plugin" version="0.8">
-  // Footer customizations for YoDev theme
-  
-  api.decorateWidget("footer:before", helper => {
-    return h("div.yodev-footer-banner", [
-      h("div.container", [
-        h("div.footer-content", [
-          h("h3", "¿Listo para unirte a la comunidad?"),
-          h("p", "Conecta con desarrolladores de toda América Latina"),
-          h("a.btn.btn-primary", { href: "/signup" }, "Comenzar ahora")
-        ])
-      ])
-    ]);
-  });
+<script type="text/x-handlebars" data-template-name="/connectors/below-footer/yodev-footer-banner">
+  <div class="yodev-footer-banner">
+    <div class="container">
+      <div class="footer-content">
+        <h3>{{theme-i18n "yodev_theme.ready_to_join"}}</h3>
+        <p>{{theme-i18n "yodev_theme.connect_developers"}}</p>
+        <a class="btn btn-primary" href="/signup">{{theme-i18n "yodev_theme.get_started"}}</a>
+      </div>
+    </div>
+  </div>
 </script>
 
 <style>
   .yodev-footer-banner {
-    background: linear-gradient(135deg, var(--yodev-accent), darken(var(--yodev-accent), 20%));
+    background: linear-gradient(135deg, var(--yodev-accent), #ea580c);
     color: white;
     padding: 3rem 0;
     margin-top: 2rem;
@@ -42,12 +38,17 @@
         border: none;
         padding: 0.75rem 2rem;
         font-weight: 700;
+        text-decoration: none;
+        border-radius: 6px;
+        display: inline-block;
+        transition: all 0.2s ease;
         
         &:hover {
           transform: translateY(-2px);
           box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+          color: var(--yodev-accent);
         }
       }
     }
   }
-}</style>
+</style>

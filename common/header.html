@@ -1,62 +1,31 @@
-<script type="text/discourse-plugin" version="0.8">
-  const { h } = require("virtual-dom");
-  
-  api.decorateWidget("header-buttons:before", helper => {
-    if (settings.custom_header_search) {
-      return helper.attach("search-menu");
-    }
-  });
-  
-  api.decorateWidget("home-logo:after", helper => {
-    if (settings.custom_logo_text) {
-      return h("span.custom-logo-text", settings.custom_logo_text);
-    }
-  });
-  
-  // Add community stats to sidebar
-  api.decorateWidget("sidebar-wrapper:after", helper => {
-    if (settings.show_community_stats) {
-      return helper.attach("community-stats-widget");
-    }
-  });
-  
-  api.createWidget("community-stats-widget", {
-    tagName: "div.sidebar-section.community-stats",
-    
-    html() {
-      return [
-        h("div.sidebar-section-header", "Estadísticas de la Comunidad"),
-        h("div.sidebar-section-content", [
-          h("div.stat-item", [
-            h("span.stat-label", "Desarrolladores activos"),
-            h("span.stat-value", "10,247")
-          ]),
-          h("div.stat-item", [
-            h("span.stat-label", "Posts hoy"),
-            h("span.stat-value", "156")
-          ]),
-          h("div.stat-item", [
-            h("span.stat-label", "Comunidades"),
-            h("span.stat-value", "47")
-          ])
-        ])
-      ];
-    }
-  });
-  
-  // Apply theme settings
-  if (settings.hide_topic_footer_controls) {
-    $("body").addClass("hide-topic-footer-controls");
-  }
-  
-  if (settings.enable_full_width_layout) {
-    $("body").addClass("full-width-layout");
-  }
-  
-  // Set custom accent color
-  if (settings.primary_accent_color) {
-    document.documentElement.style.setProperty('--yodev-primary-accent', settings.primary_accent_color);
-  }
+<script type="text/x-handlebars" data-template-name="/connectors/above-main-container/community-stats">
+  {{#if themeSettings.show_community_stats}}
+    <div class="sidebar-section community-stats">
+      <div class="sidebar-section-header">
+        {{theme-i18n "yodev_theme.community_stats"}}
+      </div>
+      <div class="sidebar-section-content">
+        <div class="stat-item">
+          <span class="stat-label">{{theme-i18n "yodev_theme.active_developers"}}</span>
+          <span class="stat-value">10,247</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">{{theme-i18n "yodev_theme.posts_today"}}</span>
+          <span class="stat-value">156</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">{{theme-i18n "yodev_theme.communities"}}</span>
+          <span class="stat-value">47</span>
+        </div>
+      </div>
+    </div>
+  {{/if}}
+</script>
+
+<script type="text/x-handlebars" data-template-name="/connectors/header-buttons/custom-logo-text">
+  {{#if themeSettings.custom_logo_text}}
+    <span class="custom-logo-text">{{themeSettings.custom_logo_text}}</span>
+  {{/if}}
 </script>
 
 <style>
@@ -72,4 +41,35 @@
       max-width: none !important;
     }
   }
+  
+  .community-stats {
+    background: var(--secondary);
+    border: 1px solid var(--primary-low);
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    
+    .sidebar-section-header {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+    
+    .stat-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--primary-low);
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      .stat-value {
+        font-weight: 600;
+        color: var(--yodev-accent);
+      }
+    }
+  }
 </style>
+</script>
