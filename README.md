@@ -1,6 +1,14 @@
 # YoDev Community Discourse Theme
 
-A modern, Reddit-inspired Discourse theme designed for developer communities in Latin America.
+A modern, Reddit-inspired Discourse theme designed for developer communities.
+
+## Quick Install
+
+1. Go to your Discourse admin panel
+2. Navigate to **Customize > Themes**
+3. Click **"Install"** → **"From a git repository"**
+4. Enter this repository URL
+5. Click **"Install"** and then **"Activate"**
 
 ## Features
 
